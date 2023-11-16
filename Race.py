@@ -28,6 +28,8 @@ def turkeyGen(turkeyNum):
     }
 
     for i in range(turkeyNum):
+
+        ## Holds the values for creating the turkey.
         tempList = []
 
         ## Generates 3 values for each turkey, speed, agility, and intelligence
@@ -39,7 +41,8 @@ def turkeyGen(turkeyNum):
         turkeyDict.update({str("Turkey " + str(i + 1)): list(tempList)})
         tempList.clear()
     
-    print(turkeyDict.items())
+    for i in turkeyDict:
+        print(turkeyDict)
     return turkeyDict
 
 def turkeyRace(turkeyDict):
