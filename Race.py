@@ -1,5 +1,4 @@
 from random import randint
-from turtle import speed
 '''
 class turkey:
     def __init__(self,spd,agi,int,chance):
