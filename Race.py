@@ -32,11 +32,15 @@ def turkeyGen(turkeyNum):
         ## Holds the values for creating the turkey.
         tempList = []
 
-        ## Generates 3 values for each turkey, speed, agility, and intelligence
-        ## Speed is obvious, agility determines chance to dodge, and
-        ## intelligence determines chance to beat obstacles.
+        '''
+        Generates 3 values for each turkey, speed, agility, and intelligence.
+        Speed is obvious, agility determines chance to dodge, and
+        intelligence determines chance to beat obstacles.
+        A fourth value is added for the distance the turkey is.
+        '''
         for j in range(3):
             tempList.append(randint(1,10))
+        tempList.append(1000)
 
         turkeyDict.update({str("Turkey " + str(i + 1)): list(tempList)})
         tempList.clear()
@@ -46,7 +50,31 @@ def turkeyGen(turkeyNum):
     return turkeyDict
 
 def turkeyRace(turkeyDict):
-    pass
+    '''
+    The obstacles dictionary contains different obstacles for use in the race.
+    Each obstacle has 2 values, the attribute it uses, 2 for agility, 3 for 
+    intelligence, and how high that skill needs to be for a penalty
+    to be avoided.
+    '''
+    obstacles = {
+        "Logs": [3,3],
+        "Mud": [3,5],
+        "Hoops": [2,3],
+        "Boulder": [2,5],
+    }
+
+    while True:
+        if randint(1,10) in range(6,10):
+            for i in turkeyDict:
+                pass
+                
+
+        else:
+            for i in turkeyDict:
+                pass
+        break
+
+
 
 while True:
     turkeyNum = int(input("How many turkeys will participate in the race? "))
