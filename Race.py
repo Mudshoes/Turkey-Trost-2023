@@ -64,14 +64,17 @@ def turkeyRace(turkeyDict):
     }
 
     while True:
-        if randint(1,10) in range(6,10):
-            for i in turkeyDict:
-                pass
-                
+        ## Determines whether or not there will be an obstacle.
+        isObstacle = randint(1,10)
+        if isObstacle not in range(6,10):
+            isObstacle = False
 
-        else:
+        if not isObstacle:
             for i in turkeyDict:
-                pass
+                turkeyDict[i[3]] -= turkeyDict[i[0] * 15]
+                print(turkeyDict[i[3]])
+        else:
+            pass
         break
 
 
