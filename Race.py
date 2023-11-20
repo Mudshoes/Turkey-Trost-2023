@@ -71,7 +71,6 @@ def turkeyRace(turkeyDict):
 
         if not isObstacle:
             for i in turkeyDict:
-                turkeyDict[i[3]] -= turkeyDict[i[0] * 15]
                 print(turkeyDict[i[3]])
         else:
             pass
