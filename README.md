@@ -2,5 +2,5 @@
 Race your turkey or something
 
 Instructions:
-Enter the amount of turkeys in the race
-Watch the numbers go
+> Enter the amount of turkeys in the race
+> Watch the numbers go
