@@ -50,6 +50,9 @@ def turkeyGen(turkeyNum):
     return turkeyDict
 
 def turkeyRace(turkeyDict):
+
+    print("Let the race begin!")
+
     '''
     The obstacles dictionary contains different obstacles for use in the race.
     Each obstacle has 2 values, the attribute it uses, 2 for agility, 3 for 
@@ -65,18 +68,37 @@ def turkeyRace(turkeyDict):
 
     while True:
         ## Determines whether or not there will be an obstacle.
-        isObstacle = randint(1,10)
-        if isObstacle not in range(6,10):
+        isObstacle = randint(1,5)
+        if isObstacle == 5:
             isObstacle = False
 
+        ## Check the IsObstacle variable for a "False" value.
         if not isObstacle:
+            print("No obstacle on this stretch!")
             for i in turkeyDict:
-                print(turkeyDict[i][3])
                 turkeyDict[i][3] -= turkeyDict[i][0] * 15
-                print(turkeyDict[i])
+        ## If the isObstacle variable is not False, runs this code
         else:
-            pass
-        break
+            ## A disgusting way to iterate, but it works. I think.
+            for i in turkeyDict:
+                if turkeyDict[i][obstacles[isObstacle][0]] <= obstacles[isObstacle][1]:
+                    turkeyDict[i][3] -= turkeyDict[i][0] * 5
+                else:
+                    turkeyDict[i][3] -= turkeyDict[i][0] * 10
+                    
+        ## Checks to see if the user wants to continue the race, also acts as a way to stop an infinite loop from happening.
+        while True:
+            choice = input("Would you like to continue this race? (Y/N) ")
+            if choice == "Y" or choice == "N":
+                break
+            else:
+                print("Must be Y (Yes) or N (No)")
+
+        ## Checks if a turkey's distance value has reached 0, meaning they've won.
+        for i in turkeyDict:
+            if turkeyDict[i][3] <= 0:
+                print("The race is over! ")
+                break
 
 
 
@@ -84,4 +106,17 @@ while True:
     turkeyNum = int(input("How many turkeys will participate in the race? "))
     turkeyDict = turkeyGen(turkeyNum)
     turkeyRace(turkeyDict)
+
+    while True:
+        choice = input("Would you like to race again? (Y/N) ")
+        if choice == "Y" or "N":
+            break
+        else:
+            print("Must be Y (Yes) or N (No)")
+    
+    if choice == "Y":
+        continue
+    elif choice == "N":
+        break
+        
 
