@@ -45,8 +45,8 @@ def turkeyGen(turkeyNum):
         turkeyDict.update({str("Turkey " + str(i + 1)): list(tempList)})
         tempList.clear()
     
-    for i in turkeyDict:
-        print(turkeyDict)
+
+    print(turkeyDict)
     return turkeyDict
 
 def turkeyRace(turkeyDict):
@@ -71,7 +71,9 @@ def turkeyRace(turkeyDict):
 
         if not isObstacle:
             for i in turkeyDict:
-                print(turkeyDict[i[3]])
+                print(turkeyDict[i][3])
+                turkeyDict[i][3] -= turkeyDict[i][0] * 15
+                print(turkeyDict[i])
         else:
             pass
         break
