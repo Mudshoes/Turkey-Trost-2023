@@ -85,7 +85,6 @@ def turkeyRace(turkeyDict):
                     turkeyDict[i][3] -= turkeyDict[i][0] * 5
                 else:
                     turkeyDict[i][3] -= turkeyDict[i][0] * 10
-                    
         ## Checks to see if the user wants to continue the race, also acts as a way to stop an infinite loop from happening.
         while True:
             choice = input("Would you like to continue this race? (Y/N) ")
