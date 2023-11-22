@@ -50,6 +50,8 @@ def turkeyGen(turkeyNum):
     return turkeyDict
 
 def turkeyRace(turkeyDict):
+    ## Gets the names for all the turkeys and puts them in one place.
+    turkeyNames = turkeyDict.keys()
 
     print("Let the race begin!")
 
@@ -67,24 +69,18 @@ def turkeyRace(turkeyDict):
     }
 
     while True:
-        ## Determines whether or not there will be an obstacle.
-        isObstacle = randint(1,5)
-        if isObstacle == 5:
-            isObstacle = False
+        for i in turkeyDict:
+            turkeyDict[i][3] -= turkeyDict[i][0] * 15
 
-        ## Check the IsObstacle variable for a "False" value.
-        if not isObstacle:
-            print("No obstacle on this stretch!")
-            for i in turkeyDict:
-                turkeyDict[i][3] -= turkeyDict[i][0] * 15
-        ## If the isObstacle variable is not False, runs this code
-        else:
-            ## A disgusting way to iterate, but it works. I think.
-            for i in turkeyDict:
-                if turkeyDict[i][obstacles[isObstacle][0]] <= obstacles[isObstacle][1]:
-                    turkeyDict[i][3] -= turkeyDict[i][0] * 5
-                else:
-                    turkeyDict[i][3] -= turkeyDict[i][0] * 10
+        firstPlace = ["none",1500]
+
+        for i in turkeyDict:
+            if turkeyDict[i][3] < firstPlace[1]:
+                firstPlace[0] = turkeyNames[i]
+                firstPlace[0] = turkeyDict[i][3]
+        
+        print(str(firstPlace[0]) + " is in the lead with " + str(firstPlace[1]) + " meters to go!")
+
         ## Checks to see if the user wants to continue the race, also acts as a way to stop an infinite loop from happening.
         while True:
             choice = input("Would you like to continue this race? (Y/N) ")
