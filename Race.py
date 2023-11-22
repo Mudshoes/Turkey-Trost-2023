@@ -76,17 +76,7 @@ def turkeyRace(turkeyDict):
     while True:
         for i in turkeyDict:
             turkeyDict[i][3] -= turkeyDict[i][0] * 15
-
-        firstPlace = "none"
-        firstPlaceDist = 1500
-
-        for i in range(len(turkeyDict)):
-            if turkeyDict[i][3] < firstPlaceDist:
-                print(turkeyNames[i])
-                firstPlace = turkeyNames[i]
-                firstPlaceDist = turkeyDict[i][3]
-        
-        print(str(firstPlace[0]) + " is in the lead with " + str(firstPlace[1]) + " meters to go!")
+            print(turkeyNames[i] + ' is '  + str(turkeyDict[i][3]) + ' from the finish line!')
 
         ## Checks to see if the user wants to continue the race, also acts as a way to stop an infinite loop from happening.
         while True:
