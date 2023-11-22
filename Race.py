@@ -76,7 +76,14 @@ def turkeyRace(turkeyDict):
     while True:
         for i in turkeyDict:
             turkeyDict[i][3] -= turkeyDict[i][0] * 15
-            print(turkeyNames[i] + ' is '  + str(turkeyDict[i][3]) + ' from the finish line!')
+            print(i + ' is '  + str(turkeyDict[i][3]) + ' from the finish line!')
+            if turkeyDict[i][3] <= 0:
+                winner = True
+                print(i + ' Wins!')
+                break
+
+        if winner:
+            break
 
         ## Checks to see if the user wants to continue the race, also acts as a way to stop an infinite loop from happening.
         while True:
@@ -85,12 +92,6 @@ def turkeyRace(turkeyDict):
                 break
             else:
                 print("Must be Y (Yes) or N (No)")
-
-        ## Checks if a turkey's distance value has reached 0, meaning they've won.
-        for i in turkeyDict:
-            if turkeyDict[i][3] <= 0:
-                print("The race is over! ")
-                break
 
 
 
