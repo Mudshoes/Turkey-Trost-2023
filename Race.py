@@ -51,7 +51,12 @@ def turkeyGen(turkeyNum):
 
 def turkeyRace(turkeyDict):
     ## Gets the names for all the turkeys and puts them in one place.
-    turkeyNames = turkeyDict.keys()
+    turkeyNames = []
+    for i,l in turkeyDict.items():
+        print(str(i))
+        print(str(l))
+        turkeyNames.append(i)
+    print(turkeyNames)
 
     print("Let the race begin!")
 
@@ -72,12 +77,14 @@ def turkeyRace(turkeyDict):
         for i in turkeyDict:
             turkeyDict[i][3] -= turkeyDict[i][0] * 15
 
-        firstPlace = ["none",1500]
+        firstPlace = "none"
+        firstPlaceDist = 1500
 
-        for i in turkeyDict:
-            if turkeyDict[i][3] < firstPlace[1]:
-                firstPlace[0] = turkeyNames[i]
-                firstPlace[0] = turkeyDict[i][3]
+        for i in range(len(turkeyDict)):
+            if turkeyDict[i][3] < firstPlaceDist:
+                print(turkeyNames[i])
+                firstPlace = turkeyNames[i]
+                firstPlaceDist = turkeyDict[i][3]
         
         print(str(firstPlace[0]) + " is in the lead with " + str(firstPlace[1]) + " meters to go!")
 
